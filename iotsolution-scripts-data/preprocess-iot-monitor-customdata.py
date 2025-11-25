@@ -196,7 +196,8 @@ async def startviper():
 
         print("Start Preprocess-iot-monitor-customdata Request:",datetime.datetime.now())
         while True:
-          try:   
+          try:
+               preprocesslogic='MIN,MAX,COUNT,VARIANCE,OUTLIERS,ANOMPROB'
             sendtransactiondata(maintopic,producerid,VIPERPORT,-1,preprocesstopic)            
             time.sleep(1)
           except Exception as e:
@@ -212,4 +213,5 @@ loop.create_task(spawnvipers())
 asyncio.set_event_loop(loop)
 
 loop.run_forever()
+
 
